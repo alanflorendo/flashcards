@@ -46,3 +46,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'haml-rails'
+gem 'bourbon'
+gem 'neat', '~> 1.8'
+gem 'sass'
