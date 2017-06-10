@@ -1,0 +1,13 @@
+- @cards.each_with_index do |card, index|
+  .card{ class: ('hidden' unless index == 0), id: "card_#{index}" }
+    .front
+      %h1= card.front
+    .flip
+      FLIP THIS CARD
+    .back.hidden
+      %h3= card.back
+      .controls
+        .right
+          GOT IT
+        .wrong
+          MISSED IT
