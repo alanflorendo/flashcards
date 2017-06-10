@@ -1,17 +1,9 @@
-game = Game.new(name: 'First Game')
-board = Board.new(name: 'First Board',
-                  game_id: game.id)
-cat_names = %w(Presidents Lakes Cheese Books Composers Holidays)
-cats = cat_names.map { |name| Category.create(board: board, name: name) }
-vals = [200, 400, 600, 800, 1000]
+require 'csv'
 
-def create_fake_question(cat, val)
-  Question.create(category: cat,
-                  front:
-end
+csv_text = File.read(Rails.root.join('db', 'cards', 'country_capitals.txt'))
+csv = CSV.parse(csv_text, headers: true)
 
-cats.each do |cat|
-  vals.each do |val|
-    create_fake_question(cat, val)
-  end
+csv.each do |row|
+  card = row.to_hash
+  c = Card.create(front: card['Front'], back: card['Back'])
 end
