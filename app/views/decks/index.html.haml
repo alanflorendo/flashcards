@@ -1,5 +1,7 @@
 - @cards.each_with_index do |card, index|
   .card{ class: ('hidden' unless index == 0), id: "card_#{index}" }
+    .card-id.hidden
+      = card.id
     .front
       %h1= card.front
     .flip
