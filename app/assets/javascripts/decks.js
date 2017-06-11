@@ -25,7 +25,9 @@ $(function() {
       url: 'cards_batch_update',
       data: { cards: statsUpdater.stats }
     })
-    .done(function() { alert('success') })
+    .done(function() {
+      window.location.href = data.redirect;
+    })
     .fail(function() { alert('fail') })
   }
 
