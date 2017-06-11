@@ -23,7 +23,11 @@ $(function() {
     $.ajax({
       type: 'PATCH',
       url: 'cards_batch_update',
-      data: { cards: statsUpdater.stats }
+      data: { cards: {
+        flips: statsUpdater.stats,
+        reviews: statsUpdater.reviews
+        }
+      }
     })
     .done(function() {
       window.location.href = data.redirect;
@@ -45,7 +49,9 @@ $(function() {
     cardNum = JSON.parse($(card).attr('id').split('_')[1]);
     cardIdFullText = $(card).find('.card-id').html();
     cardId = JSON.parse($.trim(cardIdFullText));
-    statsUpdater.update(cardId, wasRight);
+
+    markReview = $(card).find('#review').is(':checked');
+    statsUpdater.update(cardId, wasRight, markReview);
 
     $(card).addClass('hidden');
     moveToNextCard(cardNum + 1);
@@ -61,9 +67,10 @@ $(function() {
 
 function StatsUpdater () {
   this.stats = {};
+  this.reviews = {};
 
-  this.update = function(cardId, wasRight) {
+  this.update = function(cardId, wasRight, review) {
     this.stats[cardId] = wasRight;
-    console.log(this.stats);
+    this.reviews[cardId] = review;
   };
 }

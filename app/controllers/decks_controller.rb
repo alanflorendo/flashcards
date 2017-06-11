@@ -4,8 +4,10 @@ class DecksController < ApplicationController
   end
 
   def batch_update
-    card_flips = params[:cards]
+    card_flips = params[:cards][:flips]
+    card_reviews = params[:cards][:reviews]
     record_flips(card_flips)
+    record_reviews(card_reviews)
     if request.xhr?
       render js: "document.location = '#{root_path}'"
     else
@@ -19,6 +21,13 @@ class DecksController < ApplicationController
     card_flips.each do |card_id, status|
       CardFlip.create(card_id: card_id,
                       status: status)
+    end
+  end
+
+  def record_reviews(card_reviews)
+    card_reviews.each do |card_id, new_review|
+      card = Card.find(card_id)
+      card.update(review: new_review) if card.review != new_review
     end
   end
 end
