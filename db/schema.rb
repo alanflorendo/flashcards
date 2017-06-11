@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611134747) do
+ActiveRecord::Schema.define(version: 20170611180958) do
 
   create_table "card_flips", force: :cascade do |t|
     t.integer  "card_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170611134747) do
     t.string   "back"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "review"
   end
 
 end
