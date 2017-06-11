@@ -2,18 +2,32 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .card
   background: #33EEEE
+  font-family: arial
+  height: 60vh
+
+  .card-id.hidden
+    display: none
 
   &.hidden
     display: none
 
   .flip
-    height: 30px
-    border: 2px solid grey
-    width: 200px
+    width: 308px
+
+  .right,
+  .wrong
+    display: inline-block
+    margin: 0
+    width: 150px
+
+  .front
+    height: 200px
 
   .back
+    height: 40vh
     &.hidden
       display: none
 
@@ -22,3 +36,19 @@
 
   &.hidden
     display: none
+
+  .submit
+    width: 150px
+
+// Buttons
+.flip,
+.right,
+.wrong,
+.submit
+  height: 30px
+  border: 2px solid grey
+  line-height: 1
+  padding: 10px 0
+  text-align: center
+
+
