@@ -4,8 +4,9 @@
 .decks
   - @decks.each do |deck|
     .deck
-      %a{ href: deck_review_path(deck) }
-        REVIEW
-      %a{ href: deck_path(deck) }
-        ALL
-      = "#{deck.name} (#{deck.cards.for_review.count}/#{deck.cards.count})"
+      %a{ href: deck_review_path(deck),class: 'button review' }
+        REVIEW ONLY
+      %a{ href: deck_path(deck), class: 'button all-cards' }
+        ALL CARDS
+      .description
+        = "#{deck.name} (#{deck.cards.for_review.count}/#{deck.cards.count})"
