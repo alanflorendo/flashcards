@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-  def index
+  def show
     @cards = Card.all.shuffle.sample(4)
   end
 
