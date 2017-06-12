@@ -1,0 +1,11 @@
+State,Capital
+Arizona,Phoenix
+Delaware,Dover
+Kentucky,Frankfurt
+Michigan,Lansing
+Minnesota,St. Paul
+Oregon,Salem
+South Carolina,Columbia
+Virginia,Richmond
+West Virginia,Columbis
+Wisconsin,Madison
