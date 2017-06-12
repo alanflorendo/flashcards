@@ -1,8 +1,12 @@
 %h2
   = @deck.name
 
+- deck_length = @cards.length
+
 - @cards.each_with_index do |card, index|
   .card{ class: ('hidden' unless index == 0), id: "card_#{index}" }
+    %h6
+      = "#{index + 1} cards of #{deck_length} total"
     .card-id.hidden
       = card.id
     .front

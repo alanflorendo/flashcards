@@ -8,6 +8,12 @@ class DecksController < ApplicationController
     @cards = @deck.cards.shuffle
   end
 
+  def review
+    @deck = Deck.find(params[:id])
+    @cards = @deck.cards.for_review.shuffle
+    render 'show'
+  end
+
   def batch_update
     card_flips = params[:cards][:flips]
     card_reviews = params[:cards][:reviews]
