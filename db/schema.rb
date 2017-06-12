@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611180958) do
+ActiveRecord::Schema.define(version: 20170611222258) do
 
   create_table "card_flips", force: :cascade do |t|
     t.integer  "card_id"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20170611180958) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean  "review"
+    t.integer  "deck_id"
+  end
+
+  create_table "decks", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
