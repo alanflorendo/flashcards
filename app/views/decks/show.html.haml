@@ -1,3 +1,6 @@
+%h2
+  = @deck.name
+
 - @cards.each_with_index do |card, index|
   .card{ class: ('hidden' unless index == 0), id: "card_#{index}" }
     .card-id.hidden

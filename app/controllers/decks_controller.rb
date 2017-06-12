@@ -1,6 +1,11 @@
 class DecksController < ApplicationController
+  def index
+    @decks = Deck.all
+  end
+
   def show
-    @cards = Card.all.shuffle.sample(4)
+    @deck = Deck.find(params[:id])
+    @cards = @deck.cards.shuffle
   end
 
   def batch_update

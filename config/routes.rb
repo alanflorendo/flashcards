@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'decks#show'
+  root 'decks#index'
+  resources :decks, only: [:index, :show]
 
   patch 'cards_batch_update' => 'decks#batch_update'
   # The priority is based upon order of creation: first created -> highest priority.

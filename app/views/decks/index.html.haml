@@ -1,0 +1,9 @@
+%h2
+  What is Manatees?
+
+.decks
+  - @decks.each do |deck|
+    .deck
+      %a{ href: deck_path(deck) }
+        ALL CARDS
+      = deck.name
