@@ -1,4 +1,4 @@
-State,Capital
+Front,Back
 Arizona,Phoenix
 Delaware,Dover
 Kentucky,Frankfurt

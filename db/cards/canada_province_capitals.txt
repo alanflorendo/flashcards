@@ -1,4 +1,4 @@
-Province,Capital
+Front,Back
 Alberta,Edmonton
 British Columbia,Victoria
 Manitoba,Winnipeg
