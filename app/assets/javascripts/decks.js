@@ -22,7 +22,7 @@ $(function() {
   function postStats() {
     $.ajax({
       type: 'PATCH',
-      url: 'cards_batch_update',
+      url: '/cards_batch_update',
       data: { cards: {
         flips: statsUpdater.stats,
         reviews: statsUpdater.reviews
