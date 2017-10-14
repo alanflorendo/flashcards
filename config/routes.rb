@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'decks#index'
   resources :decks, except: :destroy
-  resources :cards, only: [:new, :create]
+  resources :cards, only: [:new, :create, :edit, :update]
   get 'decks_review/:id', to: 'decks#review', as: 'deck_review'
 
   patch 'cards_batch_update' => 'decks#batch_update'

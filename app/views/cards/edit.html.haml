@@ -1,0 +1,17 @@
+.new-card-form
+  = form_for @card do |f|
+
+    %p
+      = f.label :deck
+      = f.select :deck_id, @decks.collect { |d| [d.name, d.id] }
+
+    %p
+      = f.label :front
+      = f.text_field :front
+
+    %p
+      = f.label :back
+      = f.text_field :back
+
+    .button= f.submit 'Edit Card'
+
