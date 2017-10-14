@@ -14,6 +14,20 @@ class DecksController < ApplicationController
     render 'show'
   end
 
+  def new
+    @deck = Deck.new
+    @deck_collections = DeckCollection.all
+  end
+
+  def create
+    @deck = Deck.new(deck_params)
+    if @deck.save
+      redirect_to decks_path
+    else
+      render @deck
+    end
+  end
+
   def batch_update
     card_flips = params[:cards][:flips]
     card_reviews = params[:cards][:reviews]
@@ -44,5 +58,9 @@ class DecksController < ApplicationController
       card = Card.find(card_id)
       card.update(review: new_review) if card.review != new_review
     end
+  end
+
+  def deck_params
+    params.require(:deck).permit(:name, :deck_collection_id)
   end
 end

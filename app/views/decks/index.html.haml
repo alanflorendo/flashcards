@@ -1,6 +1,9 @@
 %h2
   What is Manatee?
 
+.actions
+  = link_to 'Create New Deck', new_deck_path
+
 .decks
   - @decks.each do |deck|
     .deck

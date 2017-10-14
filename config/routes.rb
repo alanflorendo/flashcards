@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'decks#index'
-  resources :decks, only: [:index, :show]
+  resources :decks, only: [:index, :show, :new, :create]
   get 'decks_review/:id', to: 'decks#review', as: 'deck_review'
 
   patch 'cards_batch_update' => 'decks#batch_update'

@@ -1,0 +1,8 @@
+= form_for @deck do |f|
+  = f.label :name
+  = f.text_field :name
+
+  = f.label :deck_collection
+  = f.select :deck_collection_id, @deck_collections.collect { |dc| [dc.name, dc.id] }
+
+  = f.submit 'Create New Deck'
