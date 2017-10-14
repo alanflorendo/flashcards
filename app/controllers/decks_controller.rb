@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
   def index
-    @decks = Deck.all
+    @decks = deck_collection.decks
   end
 
   def show
@@ -27,6 +27,10 @@ class DecksController < ApplicationController
   end
 
   private
+
+  def deck_collection
+    id = params[:id] ? DeckCollection.find_by(name: params[:id]) : DeckCollection.first
+  end
 
   def record_flips(card_flips)
     card_flips.each do |card_id, status|
