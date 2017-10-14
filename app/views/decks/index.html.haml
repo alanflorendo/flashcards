@@ -13,3 +13,5 @@
         ALL CARDS
       .description
         = "#{deck.name} (#{deck.cards.for_review.count}/#{deck.cards.count})"
+
+      .button= link_to 'Edit Deck', edit_deck_path(deck)

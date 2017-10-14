@@ -19,8 +19,23 @@ class DecksController < ApplicationController
     @deck_collections = DeckCollection.all
   end
 
+  def edit
+    @deck = Deck.find(params[:id])
+    @deck_collections = DeckCollection.all
+  end
+
   def create
     @deck = Deck.new(deck_params)
+    if @deck.save
+      redirect_to decks_path
+    else
+      render @deck
+    end
+  end
+
+  def update
+    @deck = Deck.find(params[:id])
+    @deck.update_attributes(deck_params)
     if @deck.save
       redirect_to decks_path
     else
