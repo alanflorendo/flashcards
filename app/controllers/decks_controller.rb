@@ -27,8 +27,10 @@ class DecksController < ApplicationController
   def create
     @deck = Deck.new(deck_params)
     if @deck.save
+      flash[:success] = 'The deck was successfully created'
       redirect_to decks_path
     else
+      flash[:error] = 'The deck had an error'
       render @deck
     end
   end
@@ -37,8 +39,10 @@ class DecksController < ApplicationController
     @deck = Deck.find(params[:id])
     @deck.update_attributes(deck_params)
     if @deck.save
+      flash[:success] = 'The deck was successfully created'
       redirect_to decks_path
     else
+      flash[:error] = 'The deck had an error'
       render @deck
     end
   end
