@@ -22,7 +22,7 @@ class JeopardySeeder
   end
 
   def make_deck_and_cards(filename)
-    csv_text = File.read(Rails.root.join('db', 'cards', "#{filename}.txt"))
+    csv_text = File.read(Rails.root.join('db', 'cards', 'jeopardy', "#{filename}.txt"))
     deck_name = filename.humanize.titleize
     deck = Deck.find_by(name: deck_name)
     if deck
