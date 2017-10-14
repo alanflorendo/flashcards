@@ -1,0 +1,13 @@
+.cards-index
+  %h3
+    = @deck.name
+
+  - @cards.each do |card|
+    .front
+      = link_to "Edit Card ##{card.id}", edit_card_path(card)
+      = card.front
+
+    .back
+      %em
+        = card.back
+    %br

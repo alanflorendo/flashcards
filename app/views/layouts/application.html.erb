@@ -7,6 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <h2>
+    What is Manatee?
+  </h2>
+
   <% flash.each do |name, msg| -%>
     <%= content_tag :div, msg, class: name %>
   <% end -%>

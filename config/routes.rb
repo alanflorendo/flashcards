@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'decks#index'
   resources :decks, except: :destroy
-  resources :cards, only: [:new, :create, :edit, :update]
+  resources :cards, except: %i[destroy index]
   get 'decks_review/:id', to: 'decks#review', as: 'deck_review'
+  get 'decks/:deck_id/cards', to: 'cards#index', as: 'deck_cards'
 
   patch 'cards_batch_update' => 'decks#batch_update'
   # The priority is based upon order of creation: first created -> highest priority.
